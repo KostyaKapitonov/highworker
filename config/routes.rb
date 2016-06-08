@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get 'orders/index'
+  get 'orders/order_list'
 
   get 'orders/preview'
 
-  put 'orders/addOrder'
+  post 'orders/addOrder'
   get 'orders/addOrder'
 
-  get 'orders/delOrder'
+  delete 'orders/delOrder'
+  post 'orders/update'
 
   root 'orders#preview'
   # The priority is based upon order of creation: first created -> highest priority.

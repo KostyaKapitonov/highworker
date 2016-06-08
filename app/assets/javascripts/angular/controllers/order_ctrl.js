@@ -1,33 +1,34 @@
 hw_app.controller('OrderCtrl',['$scope', 'Order', '$location', '$rootScope',
 function($scope, Order, $location, $rootScope){
 
-    window.onReCaptchaLoad = function(){
-        console.log('r loaded!');
-        console.log('-2-', window.grecaptcha);
-    };
-    console.log('-1-', window.grecaptcha);
+    var SHOW_RECAPTCHA = false;
 
     $rootScope.$on('$locationChangeSuccess', function (event, newVal) {
         if(/\/addOrder$/.test(newVal)){
             if(window.grecaptcha){
-                setTimeout(function(){
-                    window.grecaptcha.render('grecaptchaContainer',{
-                        sitekey:"6LeyWiETAAAAAI0ZUkQcnTCOb8YlaV-FPSBGe1VS",
-                        callback: function(){
-                            console.log('SUCCESS !!!');
-                            $scope.isRecaptchaDone = true;
-                            $scope.recaptchaToken = document.getElementsByClassName('g-recaptcha-response')[0].value;
-                            $scope.$apply();
-                        }
-                    });
-                },50)
-
+                SHOW_RECAPTCHA ? renderRecaptcha() :
+                ($scope.isRecaptchaDone = true);
             } else $location.path('/');
         }
-        console.log('$locationChangeSuccess changed!', arguments);
     });
 
+    function renderRecaptcha(){
+        if(!document.getElementById('grecaptchaContainer')) setTimeout(renderRecaptcha,10);
+        else {
+            window.grecaptcha.render('grecaptchaContainer',{
+                sitekey:"6LeyWiETAAAAAI0ZUkQcnTCOb8YlaV-FPSBGe1VS",
+                callback: function(){
+                    console.log('SUCCESS !!!');
+                    $scope.isRecaptchaDone = true;
+                    $scope.recaptchaToken = document.getElementsByClassName('g-recaptcha-response')[0].value;
+                    $scope.$apply();
+                }
+            });
+        }
+    }
+
     $scope.init = function(){
+        $scope.showErrors = false;
         $scope.orderSuccess = false;
         $scope.isRecaptchaDone = false;
         $scope.isOrderModalVisible = false;
@@ -37,7 +38,6 @@ function($scope, Order, $location, $rootScope){
         }
     };
     $scope.newOrderClick = function(){
-        console.log('newOrderClick');
         $location.path('/addOrder');
     };
 
@@ -60,7 +60,9 @@ function($scope, Order, $location, $rootScope){
     };
 
     function isInvalid(order){
-        //if(order.name)
+        $scope.showErrors = true;
+        if(!order.name) return true;
+        if(!order.phone) return true;
         return false;
     }
 }]);

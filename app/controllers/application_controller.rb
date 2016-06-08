@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
 
 
-
+  def show_captcha?
+    (ENV['SHOW_RECAPTCHA'].is_a?(String) ? (ENV['SHOW_RECAPTCHA'] == 'true') : ENV['SHOW_RECAPTCHA'])
+  end
 
   def check_captcha(val)
     res = get_request('https://www.google.com/recaptcha/api/siteverify', ENV['RECAPTCHA_KEY'], val.to_s)

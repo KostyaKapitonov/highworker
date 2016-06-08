@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-  def index
+
+  def order_list
+    render json: Order.all.to_json
   end
 
   def preview
@@ -10,7 +12,7 @@ class OrdersController < ApplicationController
     if request.get?
       return render :addOrder
     else
-      if check_captcha params[:recaptcha_token]
+      if !show_captcha? || (check_captcha params[:recaptcha_token])
         permited = params.require(:order).permit(:name, :phone)
         p 'permited'
         new_order = Order.new(permited)
@@ -25,6 +27,10 @@ class OrdersController < ApplicationController
       end
     end
 
+
+  end
+
+  def update
 
   end
 
