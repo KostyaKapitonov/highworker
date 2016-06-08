@@ -1,0 +1,17 @@
+<div class="kk_modal_container" >
+  <div class="kk_modal">
+    <div class="kk_modal_body" x-ng-hide="orderSuccess">
+      Ваше Имя: <input x-ng-model="order.name" type="text"/><br/>
+      Ваш моб. тел.: <input x-ng-model="order.phone" type="text"/><br/>
+
+      <div id="grecaptchaContainer" data-sitekey="6LeyWiETAAAAAI0ZUkQcnTCOb8YlaV-FPSBGe1VS"></div>
+
+      <button x-ng-disabled="!isRecaptchaDone" x-ng-click="addOrderClick()">Заказать обратный звонок</button>
+      <button x-ng-click="hideModal()">Позже</button>
+    </div>
+    <div class="kk_modal_body" x-ng-show="orderSuccess">
+      Спасибо за заказ звонка. Наш оператор перезвонит вам.<br/>
+      <button x-ng-click="hideModal()">Ok</button>
+    </div>
+  </div>
+</div>
