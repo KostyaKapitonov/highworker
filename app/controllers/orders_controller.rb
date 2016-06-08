@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   end
 
-  def addOrder
+  def add
     if request.get?
       return render :addOrder
     else

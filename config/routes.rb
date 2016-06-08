@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'orders/preview'
 
-  post 'orders/addOrder'
+  post 'orders/add'
   get 'orders/addOrder'
 
   delete 'orders/delOrder'
