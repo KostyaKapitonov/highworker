@@ -4,7 +4,7 @@ function($scope, Order, $location, $rootScope){
     var SHOW_RECAPTCHA = false;
 
     $rootScope.$on('$locationChangeSuccess', function (event, newVal) {
-        if(/\/addOrder$/.test(newVal)){
+        if(/\/add$/.test(newVal)){
             if(window.grecaptcha){
                 SHOW_RECAPTCHA ? renderRecaptcha() :
                 ($scope.isRecaptchaDone = true);
@@ -38,7 +38,7 @@ function($scope, Order, $location, $rootScope){
         }
     };
     $scope.newOrderClick = function(){
-        $location.path('/addOrder');
+        $location.path('/add');
     };
 
     $scope.hideModal = function(){

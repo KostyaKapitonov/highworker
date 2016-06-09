@@ -2,9 +2,11 @@
   <div class="kk_modal">
     <div class="kk_modal_body" x-ng-hide="orderSuccess" x-ng-form="order_form">
       Ваше Имя: <input x-ng-model="order.name" name="name" type="text" required=""/><br/>
-      <span x-ng-show="showErrors && order_form.name.$invalid">введите имя</span><br/>
-      Ваш моб. тел.: <input x-ng-model="order.phone" name="phone" type="text" required=""/><br/>
-      <span x-ng-show="showErrors && order_form.phone.$invalid">введите моб. тел.</span><br/>
+      <span x-ng-show="showErrors && order_form.name.$invalid">введите имя<br/></span><br/>
+      Ваш моб. тел.: <input x-ng-model="order.phone" name="phone" type="text" required=""
+                            x-ng-pattern="/^\+\d{11}$/"/><br/>
+      <span x-ng-show="showErrors && order_form.phone.$error.required">введите моб. тел.<br/></span>
+      <span x-ng-show="showErrors && order_form.phone.$error.pattern">не верный формат, пример: +71234567890<br/></span><br/>
       <div id="grecaptchaContainer"></div>
 
       <button x-ng-disabled="!isRecaptchaDone" x-ng-click="addOrderClick()">Заказать обратный звонок</button>

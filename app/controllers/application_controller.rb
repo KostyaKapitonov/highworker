@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in) do |user_params|
+      user_params.permit(:email, :password)
+    end
+  end
 
   def show_captcha?
     (ENV['SHOW_RECAPTCHA'].is_a?(String) ? (ENV['SHOW_RECAPTCHA'] == 'true') : ENV['SHOW_RECAPTCHA'])

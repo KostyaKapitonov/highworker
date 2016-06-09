@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
+
+
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { sessions: 'users/sessions' },
+             skip: [:passwords,:registrations], sign_out_via: [:post, :delete, :get]
+
   get 'orders/order_list'
+  get 'orders/all_orders'
 
   get 'orders/preview'
 
   post 'orders/add'
-  get 'orders/addOrder'
+  get 'orders/add'
 
-  delete 'orders/delOrder'
+  delete 'orders/delete'
   post 'orders/update'
 
   root 'orders#preview'

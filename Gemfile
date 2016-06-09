@@ -8,6 +8,7 @@ gem 'rails', '4.2.0'
 gem 'rake', '~> 11.1.2'
 gem 'angular_rails_csrf'
 gem 'figaro'
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

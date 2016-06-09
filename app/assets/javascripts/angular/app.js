@@ -6,6 +6,14 @@ hw_app.factory('Order', ['$resource', function($resource) {
         {
             'add': { method:'POST', params: {action: 'add'} },
             'update': { method:'POST', params: {action: 'update'}},
-            'all': { method:'GET', is_array: true, params: {action: 'update'}}
+            'delete': { method:'DELETE', params: {action: 'delete'}},
+            'all': { method:'GET', isArray: true, params: {action: 'all_orders'}}
+        });
+}]);
+
+hw_app.factory('User', ['$resource', function($resource) {
+    return $resource('/users/:action', null,
+        {
+            'login': { method:'POST', params: {action: 'login'}, is_array: false }
         });
 }]);

@@ -12,4 +12,5 @@
 //= require angular/angular.min.js
 //= require angular/angular-resource.min.js
 //= require angular/angular-route.min.js
+//= require moment.min.js
 //= require_tree .
