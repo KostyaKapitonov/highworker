@@ -1,0 +1,56 @@
+<div style="text-align: center" x-ng-controller="OrderListCtrl" x-ng-init="init()">
+  <div class="kk_order_list_wrapper">
+    <h1>{{header}} <%= image_tag('refresh.png', style: 'width: 60px;float: right;margin-top: -10px;',
+                                 'x-ng-click'=>'refreshOrders()',
+                                 id: 'refresh') %></h1>
+    <div class="kk_button_groups">
+      <div x-ng-repeat="header_button in header_buttons"
+           x-ng-class="header_button.styleClass"
+           x-ng-click="onHeaderButtonClick($index)"
+      >{{header_button.label}}</div>
+    </div>
+    <div x-ng-show="showNewOrders">
+      <table>
+        <tr>
+          <td>дата<br/>(время)</td>
+          <td><b>Имя</b></td>
+          <td><b>Телефон</b></td>
+          <td>действие</td>
+        </tr>
+        <tr x-ng-repeat="order in newOrders">
+          <td><b>{{order.created[0]}}</b><br/>{{order.created[1]}}</td>
+          <td>{{order.name}}</td>
+          <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
+          <td><button x-ng-click="viewed(order)">Скрыть</button></td>
+        </tr>
+      </table>
+    </div>
+    <div x-ng-hide="showNewOrders">
+      <table>
+        <tr>
+          <td>дата<br/>(время)</td>
+          <td><b>Имя</b></td>
+          <td><b>Телефон</b></td>
+          <td>действие</td>
+        </tr>
+        <tr x-ng-repeat="order in oldOrders">
+          <td><b>{{order.created[0]}}</b><br/>{{order.created[1]}}</td>
+          <td>{{order.name}}</td>
+          <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
+          <td><button x-ng-click="select(order)">Удалить</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="kk_modal_container" x-ng-show="selected_order">
+    <div class="kk_modal_comfirm">
+      <div style="display: inline-block;background-color: white;padding: 10px;border-radius: 7px;">
+        <p><b>Подтвердите удаление:</b></p>
+        <p>{{selected_order.name}}</p>
+        <p>{{selected_order.phone}}</p>
+        <button x-ng-click="del_order()">Уадлить</button>
+        <button x-ng-click="selected_order=null;">Отмена</button>
+      </div>
+    </div>
+  </div>
+</div>

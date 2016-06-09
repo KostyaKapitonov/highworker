@@ -1,0 +1,9 @@
+<div x-ng-controller="UserCtrl" style="width: 100%; text-align: center;">
+  <div style="display: inline-block; border: 1px solid grey; border-radius: 7px; padding: 10px;">
+      <h2>Log in</h2>
+      <p>Email: <input type="email" x-ng-model="user.email"/></p>
+      <p>Password: <input type="password" x-ng-model="user.password"/></p>
+      <span x-ng-show="showError" style="color: red;">Неверный Email или пароль.</span><br/>
+      <button x-ng-click="tryLogin()">Login</button>
+  </div>
+</div>
