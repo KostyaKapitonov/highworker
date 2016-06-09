@@ -113,3 +113,7 @@
 .kk_order_list_wrapper tr td:last-child{
     text-align: right;
 }
+
+.kk_order_list_wrapper table button{
+    padding: 15px 5px;
+}

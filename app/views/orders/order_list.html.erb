@@ -13,14 +13,14 @@
       <table>
         <tr>
           <td>дата<br/>(время)</td>
-          <td><b>Имя</b></td>
           <td><b>Телефон</b></td>
+          <td><b>Имя</b></td>
           <td>действие</td>
         </tr>
         <tr x-ng-repeat="order in newOrders">
           <td><b>{{order.created[0]}}</b><br/>{{order.created[1]}}</td>
-          <td>{{order.name}}</td>
           <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
+          <td>{{order.name}}</td>
           <td><button x-ng-click="viewed(order)">Скрыть</button></td>
         </tr>
       </table>
@@ -29,14 +29,14 @@
       <table>
         <tr>
           <td>дата<br/>(время)</td>
-          <td><b>Имя</b></td>
           <td><b>Телефон</b></td>
+          <td><b>Имя</b></td>
           <td>действие</td>
         </tr>
         <tr x-ng-repeat="order in oldOrders">
           <td><b>{{order.created[0]}}</b><br/>{{order.created[1]}}</td>
-          <td>{{order.name}}</td>
           <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
+          <td>{{order.name}}</td>
           <td><button x-ng-click="select(order)">Удалить</button></td>
         </tr>
       </table>
