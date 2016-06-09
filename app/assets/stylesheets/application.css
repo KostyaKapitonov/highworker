@@ -116,6 +116,19 @@
 
 .kk_order_list_wrapper table button{
     padding: 15px 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid darkgrey;
+}
+
+.kk_order_list_wrapper table button:hover{
+    padding: 14px 4px;
+    border: 2px solid #222;
+}
+
+.kk_order_list_wrapper table button:active{
+    background-color: #333;
+    color: white;
 }
 
 .kk_order_list_wrapper h3 {
