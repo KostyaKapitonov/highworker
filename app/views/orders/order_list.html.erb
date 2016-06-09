@@ -10,6 +10,7 @@
       >{{header_button.label}}</div>
     </div>
     <div x-ng-show="showNewOrders">
+      <h3>Новых заказов: {{newOrders.length}}</h3>
       <table>
         <tr>
           <td>дата<br/>(время)</td>
@@ -26,6 +27,7 @@
       </table>
     </div>
     <div x-ng-hide="showNewOrders">
+      <h3>Просмотренных заказов: <b>{{newOrders.length}}</b></h3>
       <table>
         <tr>
           <td>дата<br/>(время)</td>
