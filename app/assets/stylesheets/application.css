@@ -12,7 +12,37 @@
  *
  *= require_tree .
  *= require_self
+ *= require slick
  */
+@import 'slick';
+/******************************/
+
+@charset "utf-8";
+/* CSS Document */
+
+/* Bootstrap */
+@import url("libs/bootstrap/css/bootstrap-grid.min.css");
+
+/* Animate */
+@import url("libs/animate/animate.css");
+
+/* modal */
+@import url("libs/magnificPopup/magnific-popup.css");
+
+/* slider */
+@import url("libs/slick/slick.css");
+
+/* fonts */
+@import url("css/fonts.css");
+@import url("fonts/icofont/css/icofont.css");
+
+/* main */
+@import url("css/main.css");
+
+/* media */
+@import url("css/media.css");
+
+/******************************/
 
 .kk_modal_container{
     display: table;
@@ -72,7 +102,7 @@
 
 .kk_button_groups div{
     cursor: pointer;
-    width: 200px;
+    width: 230px;
     text-align: center;
     border: 1px solid grey;
     border-radius: 4px;
@@ -97,8 +127,8 @@
     float: right;
 }
 
-.kk_order_list_wrapper h1 {
-    /*text-align: center;*/
+.kk_order_list_wrapper h3 {
+    padding: 0; margin: 0;
 }
 
 .kk_order_list_wrapper table{
@@ -132,6 +162,15 @@
 }
 
 .kk_order_list_wrapper h3 {
-    margin-top: 90px;
+    margin: 40px;
     text-align: center;
+}
+
+h3.kk_subtitle {
+    margin-top: 180px;
+    margin-bottom: 0;
+}
+
+header .header-bottom .menu ul li a:hover {
+    background: none;
 }

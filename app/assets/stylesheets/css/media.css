@@ -1,0 +1,385 @@
+/*==========  Desktop First Method  ==========*/
+
+
+@media only screen and (min-width: 1400px) {
+	.Modern-Slider .NextArrow {
+	    right: 345px;
+	}
+
+	.Modern-Slider .PrevArrow {
+	    right: 380px;
+	}
+}
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1199px) {
+	header .top-header .callme-form {
+	    padding: 23px 10px 23px 30px;
+	    width: 25%;
+	}
+
+	header .top-header .contacts-list {
+	    padding-left: 20px;
+	}
+
+	header .top-header .contacts-list li.time {
+	    width: 23%;
+	}
+
+	header .top-header .contacts-list li.geo {
+	    width: 28%;
+	}
+
+	header .header-bottom {
+	    padding: 20px 70px 0 60px;
+	}
+
+	header .header-bottom .menu ul {
+	    float: right;
+	}
+
+	header .header-bottom .menu ul li a {
+	    padding: 6px 15px 15px;
+	}
+
+	.Modern-Slider .NextArrow {
+	    right: 45px;
+	}
+
+	.Modern-Slider .PrevArrow {
+	    right: 80px;
+	}
+
+	.services-block .services-column .services-photo {
+	    height: 245px;
+	}
+
+	.services-block .services-column .services-text {
+	    padding: 0 20px 5px;
+	}
+
+	.info-block {
+	    padding: 55px 0 27px;
+	    min-height: 250px;
+	}
+
+	.price-block img {
+    	display: none;
+	}
+
+	.price-block table {
+    	width: 100%;
+    	margin-top: 40px;
+	}
+
+	.portfolio-block .slider-for {
+	    margin: 70px auto 25px;
+	}
+
+	.portfolio-block {
+	    padding: 63px 0 90px;
+	}
+
+	footer .phone {
+	    width: 20%;
+	}
+
+	footer ul {
+	    width: 65%;
+	    margin: 0;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px) {
+	header .top-header .callme-form {
+	    width: 33%;
+	}
+
+	header .top-header .contacts-list {
+	    padding-left: 0;
+	    width: 67%;
+	}
+
+	header .top-header .contacts-list li.phone {
+	    width: 50%;
+	}
+
+	header .top-header .contacts-list li.time {
+	    width: 48%;
+	}
+
+	header .top-header .contacts-list li.geo {
+		display: none;
+	}
+
+	header .header-bottom .menu ul {
+	    float: right;
+	    text-align: right;
+	}
+
+	header .header-bottom .menu ul li a {
+	    padding: 6px 10px 15px;
+	    font-size: 13px;
+	}
+
+	.slider-area {
+	    height: 670px;
+	}
+
+	.tbc {
+	    padding-top: 120px;
+	}
+
+	.slider-text h1 {
+	    font-size: 50px;
+	}
+
+	.slider-text h2 {
+	    font-size: 30px;
+	}
+
+	.Modern-Slider .NextArrow {
+	    right: 30px;
+	}
+
+	.Modern-Slider .PrevArrow {
+	    right: 65px;
+	}
+
+	.services-block .services-column {
+	    margin: 0 20px 65px;
+	    width: 44%;
+	}
+
+	.services-block .services-column:first-of-type,
+	.services-block .services-column:nth-of-type(3n+1) {
+	    margin-left: 20px;
+	}
+
+	.services-block .services-column:nth-of-type(3n) {
+	    margin-right: 20px;
+	}
+
+	.services-block .services-column .services-text {
+	    padding-top: 35px;
+	}
+
+	.info-block:before {
+	    display: none;
+	}
+
+	.info-block {
+	    padding: 66px 0 46px;
+	}
+
+	h1 {
+		font-size: 35px;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+
+	footer .logo-column {
+	    width: 20%;
+	}
+
+	footer .phone {
+	    width: 25%;
+	}
+
+	footer ul {
+	    width: 55%;
+	}
+
+	.white-popup-block {
+	    padding: 50px 20px;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	header .top-header:before,
+	header .top-header:after {
+    	display: none;
+	}
+
+	header .top-header .callme-form {
+		padding: 23px;
+		width: 100%;
+	}
+
+	header .top-header .callme-form:before {
+		display: none;
+	}
+
+	header .top-header .contacts-list {
+	    padding-left: 0;
+	    width: 100%;
+	}
+
+	header .top-header .contacts-list li.phone,
+	header .top-header .contacts-list li.time {
+	    width: 48%;
+	}
+
+	#mobnav-btn {
+	    display: block !important;
+	}
+
+	header .header-bottom .menu ul {
+	    display: none;
+	}
+	header .header-bottom .menu ul.xactive {
+	    display: block;
+	    position: absolute;
+	    width: 100%;
+	    background-color: #fff;
+	    top: 54px;
+	    right: -16px;
+	}
+
+	header .header-bottom .menu ul li {
+	    width: 100%;
+	}
+
+	header .header-bottom {
+	    padding: 15px;
+	}
+
+	header .header-bottom .logo-column {
+	    width: 40%;
+	}
+
+	header .header-bottom .menu {
+	    float: left;
+	    width: 60%;
+	    position: relative;
+	}
+
+	header .header-bottom .menu ul li.back {
+	    display: none;
+	}
+
+	.services-block h2 {
+	    margin-bottom: 40px;
+	}
+
+	.services-block .services-column,
+	.services-block .services-column:first-of-type,
+	.services-block .services-column:nth-of-type(3n+1),
+	.services-block .services-column:nth-of-type(3n) {
+	    margin: 0 auto 40px;
+	    width: 100%;
+	}
+
+	.slider-text h1 {
+	    font-size: 30px;
+	}
+
+	.slider-text h2 {
+	    font-size: 25px;
+	}
+
+	.slider-text p {
+	    font-size: 16px;
+	}
+
+	.Modern-Slider .NextArrow {
+	    right: 30px;
+	}
+
+	.Modern-Slider .PrevArrow {
+	    right: 65px;
+	}
+
+	.tbc {
+	    padding-top: 55px;
+	}
+
+	.slider-area {
+	    height: 550px;
+	}
+
+	.portfolio-block {
+	    padding: 63px 0;
+	}
+
+	.portfolio-block .slider-for {
+	    width: 85%;
+	    margin: 40px auto 25px;
+	}
+
+	.portfolio-block .slider-for .item {
+	    height: 300px;
+	}
+
+	.portfolio-block .slider-nav {
+	    display: none;
+	}
+
+	.services-block .services-column .services-text {
+	    padding: 20px 20px 5px;
+	}
+
+	.info-block .phone {
+		text-align: left;
+	}
+
+	.price-block {
+    	padding: 72px 0;
+	}
+
+	.price-block table th {
+	    font-size: 15px;
+	}
+
+	.price-block table td {
+	    padding: 0;
+	    font-size: 14px;
+	}
+
+	.price-block table td:nth-of-type(odd) {
+    	padding: 0;
+	}
+
+	footer .logo-column {
+	    width: 40%;
+	    padding: 0 15px;
+	}
+
+	footer .phone {
+	    font-weight: 700;
+	    width: 60%;
+	    padding: 0 15px;
+	    text-align: right;
+	}
+
+	footer ul {
+	    display: none;
+	}
+
+
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	header .top-header .contacts-list li.time {
+		display: none;
+	}
+
+	header .top-header .contacts-list li.phone {
+	    width: 100%;
+	}
+
+	.tbc {
+	    padding-top: 40px;
+	}
+
+	.services-block .services-list {
+	    text-align: left;
+	}
+}

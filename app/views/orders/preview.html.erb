@@ -1,7 +1,589 @@
 <div x-ng-controller="OrderCtrl" x-ng-init="init()">
-  <h1>Сайт, реклама услуг, и прочее</h1>
-  <p>Текст, баннеры, блоки и другое</p>
-  <button x-ng-click="newOrderClick()">Оформить заказ</button>
+  <!--<button x-ng-click="newOrderClick()">Оформить заказ</button>-->
+
+
+
+
+  <header>
+    <div class="container">
+      <div class="top-header">
+        <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+
+        <form id="callme-form" class="mfp-hide white-popup-block" x-ng-controller="OrderCtrl">
+
+          <div  x-ng-hide="orderSuccess" x-ng-form="order_form">
+            <h3 class="callme-form--title">ОСТАВТЕ ЗАЯВКУ</h3>
+            <p class="callme-form--desc">Наш менеджер перезвонит Вам и договорится о дне и времени выезда специалиста на Ваш объект</p>
+            Ваше Имя: <span style="float: right; color: #a22" x-ng-show="showErrors && order_form.name.$invalid">Необходимо заполнить</span>
+            <input x-ng-model="order.name" name="name" type="text" required=""/><br/>
+
+            Контактный телефон:
+            <span style="float: right; color: #a22" x-ng-show="showErrors && order_form.phone.$error.required">Необходимо заполнить</span>
+            <span style="float: right; color: #a22; margin-top: -30px;" x-ng-show="showErrors && order_form.phone.$error.pattern">не верный формат,<br/>пример: +71234567890<br/></span>
+            <input x-ng-model="order.phone" name="phone" type="text" required=""
+                                  x-ng-pattern="/^\+\d{11}$/"/><br/>
+
+            <br/>
+            <div id="grecaptchaContainer"></div>
+
+            <!--x-ng-disabled="!isRecaptchaDone"-->
+            <div style="text-align: center">
+              <button  class="btn btn-color"  x-ng-click="addOrderClick()">Отправить</button>
+            </div>
+          </div>
+          <div x-ng-show="orderSuccess" style="text-align: center">
+            <p>Спасибо за заказ звонка.<br/>Наш менеджер перезвонит вам.</p>
+          </div>
+        </form>
+
+
+        <ul class="contacts-list" style="padding-top: 16px;">
+          <li class="phone">+7(978)816-86-59 <br> krimmontag@gmail.com</li>
+          <li class="time">Пн - Вс <br> 8.00- 21.00</li>
+          <li class="geo">По всей территории Крыма</li>
+        </ul>
+
+      </div>
+
+      <div class="row header-bottom">
+        <a href="index.html" class="logo-column">
+          <span class="logo-text-small">КРЫМ<span class="logo-text-orange">АЛЬП</span></span>
+          <span>МОНТАЖ</span>
+        </a>
+
+        <nav class="menu">
+          <div id="mobnav-btn"><i class="icofont icofont-navigation-menu"></i></div>
+          <ul class="nav lavaLamp">
+            <li><a href="#about-block">О НАС</a></li>
+            <li><a href="#services-block">НАШИ УСЛУГИ</a></li>
+            <li><a href="#price-block">СТОИМОСТЬ РАБОТ</a></li>
+            <li><a href="#portfolio-block">НАШИ РАБОТЫ</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <section class="slider-area">
+    <div class="Modern-Slider">
+      <!-- Item -->
+      <div class="item">
+        <div class="img-fill">
+          <%= image_tag "promo_1.jpg" %>
+          <div class="slider-text overlay">
+            <div class="tb">
+              <div class="tbc">
+                <div class="container text-right">
+                  <div class="col-md-offset-3 col-md-9">
+                    <h1>ВЫСОТНЫЕ РАБОТЫ</h1>
+                    <h2>В СИМФЕРОПОЛЕ И <span>КРЫМУ</span></h2>
+                    <p>Наша организация предлагает вам профессиональные <br>услуги по промышленному альпинизму</p>
+                    <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // Item -->
+
+      <!-- Item -->
+      <div class="item">
+        <div class="img-fill">
+          <%= image_tag "promo_2.jpg" %>
+          <div class="slider-text overlay">
+            <div class="tb">
+              <div class="tbc">
+                <div class="container text-left">
+                  <div class="col-xs-12">
+                    <h1>КЛИНИНГОВЫЕ УСЛУГИ</h1>
+                    <h2>МОЙКА ОКОН <span>В ПОДАРОК!</span></h2>
+                    <p>Только в период с 1 июня по 1 августа каждому клиенту мойка окон в подарок!</p>
+                    <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // Item -->
+
+      <!-- Item -->
+      <div class="item">
+        <div class="img-fill">
+          <%= image_tag "promo_3.jpg" %>
+          <div class="slider-text overlay">
+            <div class="tb">
+              <div class="tbc">
+                <div class="container text-right">
+                  <div class="col-md-offset-3 col-md-9">
+                    <h1>УТЕПЛЕНИЕ КВАРТИР</h1>
+                    <h2>В СИМФЕРОПОЛЕ И <span>КРЫМУ</span></h2>
+                    <p>При утеплении квартиры площадью свыше 35 м.кв., <br>монтаж подоконных отливов производится бесплатно</p>
+                    <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // Item -->
+
+      <!-- Item -->
+      <div class="item">
+        <div class="img-fill">
+          <%= image_tag "promo_4.jpg" %>
+          <div class="slider-text overlay">
+            <div class="tb">
+              <div class="tbc">
+                <div class="container text-left">
+                  <div class="col-xs-12">
+                    <h1>СВЕРХПРОЧНОЕ УТЕПЛЕНИЕ</h1>
+                    <h2>ВАШЕЙ <span>КВАРТИРЫ</span></h2>
+                    <p>Уникальное предложение для владельцев квартир на первом этаже - сверхпрочное <br>утепление с применением специальных материалов, стойкое к повреждениям</p>
+                    <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // Item -->
+    </div>
+  </section>
+
+  <section id="about-block" class="about-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2><span>О</span> НАС</h2>
+          <p>Компания "КрымАльпМонтаж" оказывает широкий спектр услуг по высотным работам в Симферополе и Крыму. Мы предоставляем профессиональные услуги альпинистов, качественно и с гарантией выполняем высотно-монтажные  и фасадные работы. Все работы выполняют квалифицированные специалисты, имеющие все необходимые допуски и проходящие ежегодную переаттестацию. Мы стремимся работать так, чтобы оставить о себе только хорошее впечатление..</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services-block" class="services-block">
+    <div class="container">
+      <h2><span>НАШИ</span> УСЛУГИ</h2>
+      <div class="row">
+        <div class="services-column">
+          <div class="services-photo"><%= image_tag "services_1.jpg" %></div>
+          <div class="services-text">
+            <h4>УТЕПЛЕНИЕ КВАРТИР</h4>
+            <p>Утепление стен снаружи поможет решить проблему теплоизоляции жилья: снизить теплопотери, уменьшить расходы на отопление, избавиться от сквозняков, плесени и сырых стен.</p>
+          </div>
+        </div>
+        <div class="services-column">
+          <div class="services-photo"><%= image_tag "services_2.jpg" %></div>
+          <div class="services-text">
+            <h4>ГЕРМЕТИЗАЦИЯ ШВОВ</h4>
+            <p>Герметизация межпанельных швов устраняет проблему потери тепла, протекания швов, и защищает от формирования благоприятной  среды для  образования плесени.</p>
+          </div>
+        </div>
+        <div class="services-column">
+          <div class="services-photo"><%= image_tag "services_3.jpg" %></div>
+          <div class="services-text">
+            <h4>ГЕРМЕТИЗАЦИЯ БАЛКОНОВ</h4>
+            <p>Устранение протечек кровли, комплексная гидроизоляция балкона и его кровли; заделка швов, трещин, пустот, щелей; герметизация и гидроизоляция отливов, стеклопакетов, капельников</p>
+          </div>
+        </div>
+        <div class="services-column">
+          <div class="services-photo"><%= image_tag "services_4.jpg" %></div>
+          <div class="services-text">
+            <h4>РЕСТАВРАЦИЯ ФАСАДОВ</h4>
+            <p>Предлагаемый нами ремонт и отделка фасада, или просто покраска дома, производится разными способами: с помощью тур, лесов, люлек, а также методом промышленного альпинизма</p>
+          </div>
+        </div>
+        <div class="services-column">
+          <div class="services-photo"><%= image_tag "services_5.jpg" %></div>
+          <div class="services-text">
+            <h4>КЛИНИНГОВЫЕ УСЛУГИ</h4>
+            <p>Высотная мойка окон: стекол, витражей, металлических рам и перегородок, фасадов и металлоконструкций и другие клининговые услуги</p>
+          </div>
+        </div>
+        <div class="services-column">
+          <div class="services-photo"><%= image_tag "services_6.jpg" %></div>
+          <div class="services-text">
+            <h4>МОНТАЖ СИСТЕМ ВЕНТИЛЯЦИИ</h4>
+            <p>Наши специалисты готовы спроектировать и установить для вас системы вентиляции и кондиционирования различных видов.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>А так же:</h3>
+          <ul class="services-list">
+            <li>Монтаж водосточных систем</li>
+            <li>Монтаж металлоконструкций</li><br>
+            <li>Монтаж кабелей, громоотводов, заземлений</li>
+            <li>Монтаж систем видео наблюдения и антенн</li><br>
+            <li>Монтаж освещения и украшения зданий</li>
+            <li>Монтаж наружной рекламы</li>
+            <li>Монтаж баннеров, вывесок, световых коробов</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-8">
+          <h2>Бесплатный вызов специалиста</h2>
+          <p> Выезд мастера на объект для осмотра и проведения расчетов осуществляется бесплатно</p>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-4">
+          <p class="phone">+7 (978) 816-86-59</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price-block" class="price-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2><span>СТОИМОСТЬ</span> РАБОТ</h2>
+          <p>Базовый прайс-лист на услуги альпинистов компании «КрымАльпМонтаж»</p>
+
+          <table>
+            <tr>
+              <th colspan="2">Утепление</th>
+            </tr>
+            <tr>
+              <td>- эконом</td>
+              <td> - 800 руб./м.кв.</td>
+            </tr>
+            <tr>
+              <td>- стандарт</td>
+              <td> - 930 руб./м.кв.</td>
+            </tr>
+            <tr>
+              <td>- премиум</td>
+              <td> - 1100 руб./м.кв.</td>
+            </tr>
+            <tr>
+              <td>- утепление откосов</td>
+              <td> - от 400 руб./м.п.</td>
+            </tr>
+
+            <tr>
+              <th colspan="2">Шпатлевка</th>
+            </tr>
+            <tr>
+              <td>- 1 слой (с армировкой)</td>
+              <td>- от 180 руб./м.кв.</td>
+            </tr>
+            <tr>
+              <td>- 1 слой (без армировки)</td>
+              <td>- от 140 руб./м.кв.</td>
+            </tr>
+
+
+            <tr>
+              <th colspan="2">Покраска, огрунтовка</th>
+            </tr>
+            <tr>
+              <td>- 1 слой</td>
+              <td> - от 120 руб./м.кв</td>
+            </tr>
+            <tr>
+              <td>- металлоконструкций</td>
+              <td> - договорная</td>
+            </tr>
+
+
+            <tr>
+              <th colspan="2">Герметизация межпанельных швов</th>
+            </tr>
+            <tr>
+              <td>- первичная</td>
+              <td> - от 200 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- вторичная (без вскрытия шва)</td>
+              <td> - от 150 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- вторичная (со вскрытием шва)</td>
+              <td> - от 300 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- трехкомпонентный теплый шов</td>
+              <td> - от 350 руб./м.п.</td>
+            </tr>
+
+            <tr>
+              <th colspan="2">Монтажные работы</th>
+            </tr>
+            <tr>
+              <td>- монтаж подвесных желобов</td>
+              <td> - 400 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- монтаж водосточных труб</td>
+              <td> - 360 руб./м.п.</td>
+            </tr>
+
+            <tr>
+              <th colspan="2">Монтаж баннерной рекламы</th>
+            </tr>
+            <tr>
+              <td>- шнуровкой</td>
+              <td> - от 250 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- резьбовое натяжение</td>
+              <td> - от 300 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- пристреливание</td>
+              <td> - от 200 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>- монтаж рамы для установки баннера</td>
+              <td> - от 100 руб./м.п.</td>
+            </tr>
+            <tr>
+              <td>Монтаж металлоконструкций</td>
+              <td>- цена договорная</td>
+            </tr>
+
+            <tr>
+              <th colspan="2">Клининговые услуги</th>
+            </tr>
+            <tr>
+              <td>- мойка окон</td>
+              <td> - от 40 руб./м.кв.</td>
+            </tr>
+            <tr>
+              <td>- мойка фасадов</td>
+              <td> - от 25 руб./м.кв.</td>
+            </tr>
+            <tr>
+              <td>- очистка баннеров</td>
+              <td> - от 40 руб./м.кв.</td>
+            </tr>
+          </table>
+
+          <%= image_tag "price.jpg" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-8">
+          <h2>Работы по всему Крыму</h2>
+          <p>Мы оперативно выедем в любую точку Симферополя и Крыма. <br>Наша команда всегда на готове</p>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-4">
+          <p class="phone">+7 (978) 816-86-59</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio-block" class="portfolio-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2><span>НАШИ</span> РАБОТЫ</h2>
+
+          <div class="slider portfolio-slider slider-for">
+            <div class="item"><%= image_tag "portfolio_1.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_2.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_3.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_4.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_5.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_6.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_7.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_8.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_9.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_10.jpg" %></div>
+          </div>
+          <div class="slider portfolio-slider slider-nav">
+            <div class="item"><%= image_tag "portfolio_1.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_2.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_3.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_4.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_5.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_6.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_7.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_8.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_9.jpg" %></div>
+            <div class="item"><%= image_tag "portfolio_10.jpg" %></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="logo-column">
+          <span class="logo-text-small">КРЫМАЛЬП</span><br>
+          <span>МОНТАЖ</span>
+        </div>
+
+        <p class="phone">+7 (978) 816-86-59</p>
+
+        <ul>
+          <li><a href="#about-block">О НАС</a></li>
+          <li><a href="#services-block">НАШИ УСЛУГИ</a></li>
+          <li><a href="#price-block">СТОИМОСТЬ РАБОТ</a></li>
+          <li><a href="#portfolio-block">НАШИ РАБОТЫ</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+  <script type="application/javascript">
+
+
+
+      (function(){
+
+          $(function() {
+
+              //SVG Fallback
+              if(!Modernizr.svg) {
+                  $("img[src*='svg']").attr("src", function() {
+                      return $(this).attr("src").replace(".svg", ".png");
+                  });
+              };
+
+              //Chrome Smooth Scroll
+              try {
+                  $.browserSelector();
+                  if($("html").hasClass("chrome")) {
+                      $.smoothScroll();
+                  }
+              } catch(err) {
+
+              };
+
+              $("img, a").on("dragstart", function(event) { event.preventDefault(); });
+
+          });
+
+          $(document).ready(function(){
+              // Промо-слайдер
+              $(".Modern-Slider").slick({
+                  autoplay: true,
+                  autoplaySpeed: 10000,
+                  speed: 600,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  pauseOnHover: false,
+                  dots: false,
+                  pauseOnDotsHover: true,
+                  cssEase: 'linear',
+                  fade: true,
+                  //   draggable: true,
+                  prevArrow: '<button class="PrevArrow"></button>',
+                  nextArrow: '<button class="NextArrow"></button>'
+              });
+
+              // Наши работы. слайдер
+              $('.slider-for').slick({
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  arrows: false,
+                  fade: true,
+                  asNavFor: '.slider-nav',
+                  autoplay: true,
+                  autoplaySpeed: 3000,
+                  speed: 600
+              });
+              $('.slider-nav').slick({
+                  slidesToShow: 4,
+                  slidesToScroll: 1,
+                  asNavFor: '.slider-for',
+                  autoplay: true,
+                  autoplaySpeed: 3000,
+                  speed: 600,
+                  dots: false,
+                  centerMode: false,
+                  focusOnSelect: true,
+                  prevArrow: '<button class="PrevArrow slick-arrow"><i class="icofont icofont-simple-left"></i></button>',
+                  nextArrow: '<button class="NextArrow slick-arrow"><i class="icofont icofont-simple-right"></i></button>'
+              });
+
+
+              //Форма заказать звонок в модальном окне
+              $('.callme-form').magnificPopup({
+                  type: 'inline',
+                  preloader: false,
+                  focus: '#name',
+
+                  // When elemened is focused, some mobile browsers in some cases zoom in
+                  // It looks not nice, so we disable it:
+                  callbacks: {
+                      beforeOpen: function() {
+                          if($(window).width() < 700) {
+                              this.st.focus = false;
+                          } else {
+                              this.st.focus = '#name';
+                          }
+                      }
+                  }
+              });
+
+              //Плавающий маркер у меню
+              $(".lavaLamp").lavaLamp({
+                  fx: "linear",
+                  speed: 300
+              });
+
+              //Плавная прокрутка
+              $("body").on('click', '[href*="#"]', function(e){
+                  var fixed_offset = 220;
+                  $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
+                  e.preventDefault();
+              });
+          });
+
+//Прилипающий хедер
+          $(window).scroll(function() {
+              if ($(this).scrollTop() > 1){
+                  $('header').addClass("sticky");
+              }
+              else{
+                  $('header').removeClass("sticky");
+              }
+          });
+
+// RESPONSIVE MENU
+          $(window).load(function() {
+              $('#mobnav-btn').click(
+                      function() {
+                          $('.nav').toggleClass("xactive");
+                      });
+              $('.mobnav-subarrow').click(
+                      function() {
+                          $(this).parent().toggleClass("xpopdrop");
+                      });
+          });
+
+      })();
+
+  </script>
 
     <ng-view></ng-view>
 

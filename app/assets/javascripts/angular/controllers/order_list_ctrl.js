@@ -3,8 +3,8 @@ function($scope, Order, $location){
 
     $scope.init = function(){
         $scope.header_buttons=[
-            {styleClass: 'active', label: 'Новые Заказы'},
-            {styleClass: '', label: 'Просмотренные Заказы'}
+            {styleClass: 'active', label: 'Новые'},
+            {styleClass: '', label: 'Просмотренные'}
         ];
         $scope.header = $scope.header_buttons[0].label;
         loadOrders();

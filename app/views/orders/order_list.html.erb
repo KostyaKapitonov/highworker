@@ -1,16 +1,18 @@
 <div style="text-align: center" x-ng-controller="OrderListCtrl" x-ng-init="init()">
   <div class="kk_order_list_wrapper">
-    <h1>{{header}} <%= image_tag('refresh.png', style: 'width: 60px;float: right;margin-top: -10px;',
+    <div>
+    <h3>{{header}} <%= image_tag('refresh.png', style: 'width: 60px;float: right;margin-top: -10px; margin-right: -35px;',
                                  'x-ng-click'=>'refreshOrders()',
-                                 id: 'refresh') %></h1>
+                                 id: 'refresh') %></h3>
+    </div>
     <div class="kk_button_groups">
       <div x-ng-repeat="header_button in header_buttons"
            x-ng-class="header_button.styleClass"
            x-ng-click="onHeaderButtonClick($index)"
-      >{{header_button.label}}</div>
+      >{{header_button.label}}<br/>Заказы</div>
     </div>
     <div x-ng-show="showNewOrders">
-      <h3>Новых заказов: {{newOrders.length}}</h3>
+      <h3 class="kk_subtitle">Новых заказов: {{newOrders.length}}</h3>
       <table>
         <tr>
           <td>дата<br/>(время)</td>
@@ -27,7 +29,7 @@
       </table>
     </div>
     <div x-ng-hide="showNewOrders">
-      <h3>Просмотренных заказов: <b>{{oldOrders.length}}</b></h3>
+      <h3 class="kk_subtitle">Просмотренных заказов: <b>{{oldOrders.length}}</b></h3>
       <table>
         <tr>
           <td>дата<br/>(время)</td>
