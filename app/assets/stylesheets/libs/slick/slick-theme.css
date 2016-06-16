@@ -12,8 +12,6 @@
     font-weight: normal;
     font-style: normal;
 
-    src: font-url('fonts/slick.eot');
-    src: font-url('fonts/slick.eot?#iefix') format('embedded-opentype'), font-url('fonts/slick.woff') format('woff'), font-url('fonts/slick.ttf') format('truetype'), font-url('fonts/slick.svg#slick') format('svg');
 }
 /* Arrows */
 .slick-prev,
