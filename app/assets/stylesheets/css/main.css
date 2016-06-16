@@ -257,7 +257,7 @@ header .top-header .contacts-list li.phone {
 }
 
 header .top-header .contacts-list li.phone:before {
-  background: url(../contact_book_icon.svg) 0 0 no-repeat;
+  background: image-url("contact_book_icon.svg") 0 0 no-repeat;
   background-size: 100%;
 }
 
@@ -278,7 +278,7 @@ header .top-header .contacts-list li.geo {
 }
 
 header .top-header .contacts-list li.geo:before {
-  background: url(../pin_icon.svg) 0 0 no-repeat;
+  background: image-url("pin_icon.svg") 0 0 no-repeat;
   background-size: 100%;
   left: 21px;
 }
@@ -756,7 +756,7 @@ header .header-bottom .menu #mobnav-btn i {
   width: 100%;
   top: 0;
   left: 0;
-  background: url(../bg_dark.png) 0 0 no-repeat;
+  background: image-url("bg_dark.png") 0 0 no-repeat;
 }
 
 .info-block h2 {

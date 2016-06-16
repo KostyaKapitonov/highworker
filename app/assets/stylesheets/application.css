@@ -19,27 +19,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* Bootstrap */
-@import "libs/bootstrap/css/bootstrap-grid.min.css";
-
-/* Animate */
-@import "libs/animate/animate.css";
-
-/* modal */
-@import "libs/magnificPopup/magnific-popup.css";
-
-/* slider */
-@import "libs/slick/slick.css";
-
-/* fonts */
-@import "css/fonts.css";
-@import "fonts/icofont/css/icofont.css";
-
-/* main */
-@import "css/main.css";
-
-/* media */
-@import "css/media.css";
 
 /******************************/
 
