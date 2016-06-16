@@ -1,4 +1,4 @@
-<div style="text-align: center" x-ng-controller="OrderListCtrl" x-ng-init="init()">
+<div style="text-align: center;" x-ng-controller="OrderListCtrl" x-ng-init="init()">
   <div class="kk_order_list_wrapper">
     <div>
     <h3>{{header}} <%= image_tag('refresh.png', style: 'width: 60px;float: right;margin-top: -10px; margin-right: -35px;',
@@ -11,7 +11,7 @@
            x-ng-click="onHeaderButtonClick($index)"
       >{{header_button.label}}<br/>Заказы</div>
     </div>
-    <div x-ng-show="showNewOrders">
+    <div x-ng-show="showNewOrders && !selected_order">
       <h3 class="kk_subtitle">Новых заказов: {{newOrders.length}}</h3>
       <table>
         <tr>
@@ -28,7 +28,7 @@
         </tr>
       </table>
     </div>
-    <div x-ng-hide="showNewOrders">
+    <div x-ng-hide="showNewOrders || selected_order">
       <h3 class="kk_subtitle">Просмотренных заказов: <b>{{oldOrders.length}}</b></h3>
       <table>
         <tr>

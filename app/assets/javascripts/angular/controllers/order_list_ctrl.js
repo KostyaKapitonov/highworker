@@ -38,7 +38,7 @@ function($scope, Order, $location){
             console.log('del res',res);
             loadOrders();
         });
-        for(var i in $scope.newOrders){
+        for(var i in $scope.oldOrders){
             if($scope.oldOrders[i].id == $scope.selected_order.id){
                 $scope.oldOrders.splice(i,1);
             }
