@@ -36,21 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.sass" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.sass" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/sass/main.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1578948" vertical-offset="3855" max-vertical-offset="13266">
-              <caret line="221" column="45" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.08561644" vertical-offset="3881" max-vertical-offset="13266">
+              <caret line="217" column="28" selection-start-line="217" selection-start-column="28" selection-end-line="217" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28715366" vertical-offset="13512" max-vertical-offset="17388">
-              <caret line="757" column="10" selection-start-line="757" selection-start-column="10" selection-end-line="757" selection-end-column="10" />
+            <state vertical-scroll-proportion="-4.4" vertical-offset="13512" max-vertical-offset="17388">
+              <caret line="758" column="14" selection-start-line="758" selection-start-column="14" selection-end-line="758" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -169,8 +169,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/orders/preview.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-        <option value="$PROJECT_DIR$/app/assets/sass/main.sass" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/css/main.css" />
+        <option value="$PROJECT_DIR$/app/assets/sass/main.sass" />
       </list>
     </option>
   </component>
@@ -535,9 +535,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52" sideWeight="0.4996066" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40148148" sideWeight="0.4996066" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28592592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28592592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296617" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23918174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -939,18 +939,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/sass/main.sass">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1578948" vertical-offset="3855" max-vertical-offset="13266">
-          <caret line="221" column="45" selection-start-line="221" selection-start-column="42" selection-end-line="221" selection-end-column="45" />
+        <state vertical-scroll-proportion="-4.4" vertical-offset="13512" max-vertical-offset="17388">
+          <caret line="758" column="14" selection-start-line="758" selection-start-column="14" selection-end-line="758" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/css/main.css">
+    <entry file="file://$PROJECT_DIR$/app/assets/sass/main.sass">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28715366" vertical-offset="13512" max-vertical-offset="17388">
-          <caret line="757" column="10" selection-start-line="757" selection-start-column="10" selection-end-line="757" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.08561644" vertical-offset="3881" max-vertical-offset="13266">
+          <caret line="217" column="28" selection-start-line="217" selection-start-column="28" selection-end-line="217" selection-end-column="28" />
           <folding />
         </state>
       </provider>
