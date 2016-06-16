@@ -266,11 +266,10 @@ header .top-header .contacts-list li.time {
 }
 
 header .top-header .contacts-list li.time:before {
-  content: '\efb0';
-  left: 19px;
+  background: asset_url("clock.svg") 0 0 no-repeat;
+  background-size: 70%;
+  left: 21px;
   top: 5px;
-  font-size: 18px;
-  font-family: 'IcoFont';
 }
 
 header .top-header .contacts-list li.geo {
