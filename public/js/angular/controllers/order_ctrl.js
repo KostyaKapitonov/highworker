@@ -46,13 +46,12 @@ function($scope, Order, $location, $rootScope){
     };
 
     $scope.addOrderClick = function(){
-        console.log($('.mfp-close'));
+        if(isInvalid($scope.order)) return;
         $('.mfp-close').click(function(){
             $scope.$apply(function(){
                 $scope.orderSuccess = false;
             });
         });
-        if(isInvalid($scope.order)) return;
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
             if(res.success){
                 $scope.orderSuccess = true;
