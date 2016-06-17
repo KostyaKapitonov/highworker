@@ -44,17 +44,24 @@ function($scope, Order, $location, $rootScope){
         $scope.init();
         $location.path('/');
     };
+    console.log(115223);
+    $('[href="#callme-form"]').on('click',function(){
+        console.log('115223click');
+        $scope.$apply(function(){
+            setTimeout(function(){
+                $scope.init();
+                $('#addOrderButton').click(function(){
+                    $scope.addOrderClick();
+                })
+            },0);
+        });
+    });
 
     $scope.addOrderClick = function(){
         if(isInvalid($scope.order)) return;
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
             if(res.success){
                 $scope.orderSuccess = true;
-                $('.mfp-close').click(function(){
-                    $scope.$apply(function(){
-                        $scope.init();
-                    });
-                });
             } else {
                 window.grecaptcha.reset();
                 $scope.isRecaptchaDone = false;
