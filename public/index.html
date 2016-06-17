@@ -49,7 +49,11 @@
                                x-ng-pattern="/^\+\d{11}$/" id="phone" name="phone" type="tel">
 
                         <p  style="text-align: center;">
-                            <button x-ng-click="addOrderClick()" class="btn btn-color" value="Отправить"
+                            <button x-ng-click="addOrderClick()"
+                                    ng-touchmove="addOrderClick()"
+                                    ng-touchstart="addOrderClick()"
+                                    ng-touchend="addOrderClick()"
+                                    class="btn btn-color" value="Отправить"
                                    style="border: none;">Отправить</button>
                         </p>
                     </div>
