@@ -1,4 +1,4 @@
-angular.module('high_worker', ['ngResource', 'ngRoute']);
+angular.module('high_worker', ['ngResource', 'ngRoute', 'ngTouch']);
 var hw_app = angular.module('high_worker');
 
 hw_app.factory('Order', ['$resource', function($resource) {
