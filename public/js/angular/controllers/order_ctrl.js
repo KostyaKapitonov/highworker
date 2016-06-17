@@ -47,14 +47,14 @@ function($scope, Order, $location, $rootScope){
 
     $scope.addOrderClick = function(){
         if(isInvalid($scope.order)) return;
-        $('.mfp-close').click(function(){
-            $scope.$apply(function(){
-                $scope.orderSuccess = false;
-            });
-        });
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
             if(res.success){
                 $scope.orderSuccess = true;
+                $('.mfp-close').click(function(){
+                    $scope.$apply(function(){
+                        $scope.orderSuccess = false;
+                    });
+                });
             } else {
                 window.grecaptcha.reset();
                 $scope.isRecaptchaDone = false;
