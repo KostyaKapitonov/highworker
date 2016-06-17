@@ -48,7 +48,9 @@ function($scope, Order, $location, $rootScope){
     $scope.addOrderClick = function(){
         console.log($('.mfp-close'));
         $('.mfp-close').click(function(){
-            $scope.orderSuccess = false;
+            $scope.$apply(function(){
+                $scope.orderSuccess = false;
+            });
         });
         if(isInvalid($scope.order)) return;
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){

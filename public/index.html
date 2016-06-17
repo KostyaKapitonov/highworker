@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="ru"> <!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Заголовок</title>
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="all-stylesheets.css">
+
+	<script src="libs/modernizr/modernizr.js"></script>
+
+</head>
+
+<body x-ng-app="high_worker" >
+
+	<header x-ng-controller="OrderCtrl" x-ng-init="init()">
+		<div class="container">
+			<div class="top-header">
+				<a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+				<form id="callme-form" class="mfp-hide white-popup-block" >
+                    <div x-ng-form="order_form" x-ng-hide="orderSuccess">
+                        <h3 class="callme-form--title">ОСТАВТЕ ЗАЯВКУ</h3>
+                        <p class="callme-form--desc">Наш менеджер перезвонит Вам и договорится о дне и времени выезда специалиста на Ваш объект</p>
+
+                        <label for="name">Ваше имя:
+                            <span style="float: right; color: #a22" x-ng-show="showErrors && order_form.name.$invalid">Необходимо заполнить</span>
+                        </label>
+                        <input x-ng-model="order.name" name="name" type="text" required="" id="name"/>
+
+                        <label for="phone">Контактный телефон:
+                            <span style="float: right; color: #a22" x-ng-show="showErrors && order_form.phone.$error.required">Необходимо заполнить</span>
+                            <span style="float: right; color: #a22; margin-top: -30px;" x-ng-show="showErrors && order_form.phone.$error.pattern">не верный формат,<br/>пример: +71234567890</span>
+                        </label>
+                        <input x-ng-model="order.phone" required=""
+                               x-ng-pattern="/^\+\d{11}$/" id="phone" name="phone" type="tel">
+
+                        <input x-ng-click="addOrderClick()" class="btn btn-color" type="submit" value="Отправить">
+                    </div>
+                    <div x-ng-show="orderSuccess">
+                        <label>Спасибо за заявку</label>
+                        <label>Ожидайте звонка менеджера.</label>
+                    </div>
+				</form>
+
+				<ul class="contacts-list">
+					<li class="phone">+7(978)816-86-59 <br> krimmontag@gmail.com</li>
+					<li class="time">Пн - Вс <br> 8.00- 21.00</li>
+					<li class="geo">По всей территории Крыма</li>
+				</ul>
+
+			</div>
+
+			<div class="row header-bottom">
+				<a href="index.html" class="logo-column">
+					<span class="logo-text-small">КРЫМ<span class="logo-text-orange">АЛЬП</span></span>
+					<span>МОНТАЖ</span>
+				</a>
+
+				<nav class="menu">
+                    <div id="mobnav-btn"><i class="icofont icofont-navigation-menu"></i></div>
+					<ul class="nav lavaLamp">
+                        <li><a href="#about-block">О НАС</a></li>
+                        <li><a href="#services-block">НАШИ УСЛУГИ</a></li>
+                        <li><a href="#price-block">СТОИМОСТЬ РАБОТ</a></li>
+                        <li><a href="#portfolio-block">НАШИ РАБОТЫ</a></li>
+                    </ul>
+				</nav>
+
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="slider-area">
+            <div class="Modern-Slider">
+                <!-- Item -->
+                <div class="item">
+                    <div class="img-fill">
+                        <img src="img/promo_1.jpg" alt="ВЫСОТНЫЕ РАБОТЫ">
+                        <div class="slider-text overlay">
+                            <div class="tb">
+                                <div class="tbc">
+                                    <div class="container text-right">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <h1>ВЫСОТНЫЕ РАБОТЫ</h1>
+                                            <h2>В СИМФЕРОПОЛЕ И <span>КРЫМУ</span></h2>
+                                            <p>Наша организация предлагает вам профессиональные <br>услуги по промышленному альпинизму</p>
+                                            <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="img-fill">
+                        <img src="img/promo_2.jpg" alt="КЛИНИНГОВЫЕ УСЛУГИ">
+                        <div class="slider-text overlay">
+                            <div class="tb">
+                                <div class="tbc">
+                                    <div class="container text-left">
+                                        <div class="col-xs-12">
+                                            <h1>КЛИНИНГОВЫЕ УСЛУГИ</h1>
+                                            <h2>МОЙКА ОКОН <span>В ПОДАРОК!</span></h2>
+                                            <p>Только в период с 1 июня по 1 августа каждому клиенту мойка окон в подарок!</p>
+                                            <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="img-fill">
+                        <img src="img/promo_3.jpg" alt="УТЕПЛЕНИЕ КВАРТИР">
+                        <div class="slider-text overlay">
+                            <div class="tb">
+                                <div class="tbc">
+                                    <div class="container text-right">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <h1>УТЕПЛЕНИЕ КВАРТИР</h1>
+                                            <h2>В СИМФЕРОПОЛЕ И <span>КРЫМУ</span></h2>
+                                            <p>При утеплении квартиры площадью свыше 35 м.кв., <br>монтаж подоконных отливов производится бесплатно</p>
+                                            <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="img-fill">
+                        <img src="img/promo_4.jpg" alt="СВЕРХПРОЧНОЕ УТЕПЛЕНИЕ">
+                        <div class="slider-text overlay">
+                            <div class="tb">
+                                <div class="tbc">
+                                    <div class="container text-left">
+                                        <div class="col-xs-12">
+                                            <h1>СВЕРХПРОЧНОЕ УТЕПЛЕНИЕ</h1>
+                                            <h2>ВАШЕЙ <span>КВАРТИРЫ</span></h2>
+                                            <p>Уникальное предложение для владельцев квартир на первом этаже - сверхпрочное <br>утепление с применением специальных материалов, стойкое к повреждениям</p>
+                                            <a class="btn btn-color callme-form" href="#callme-form">ОСТАВИТЬ ЗАЯВКУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+            </div>
+        </section>
+
+        <section id="about-block" class="about-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2><span>О</span> НАС</h2>
+                        <p>Компания "КрымАльпМонтаж" оказывает широкий спектр услуг по высотным работам в Симферополе и Крыму. Мы предоставляем профессиональные услуги альпинистов, качественно и с гарантией выполняем высотно-монтажные  и фасадные работы. Все работы выполняют квалифицированные специалисты, имеющие все необходимые допуски и проходящие ежегодную переаттестацию. Мы стремимся работать так, чтобы оставить о себе только хорошее впечатление..</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-block" class="services-block">
+            <div class="container">
+                <h2><span>НАШИ</span> УСЛУГИ</h2>
+                <div class="row">
+                    <div class="services-column">
+                        <div class="services-photo"><img src="img/services_1.jpg" alt="УТЕПЛЕНИЕ КВАРТИР"></div>
+                        <div class="services-text">
+                            <h4>УТЕПЛЕНИЕ КВАРТИР</h4>
+                            <p>Утепление стен снаружи поможет решить проблему теплоизоляции жилья: снизить теплопотери, уменьшить расходы на отопление, избавиться от сквозняков, плесени и сырых стен.</p>
+                        </div>
+                    </div>
+                    <div class="services-column">
+                        <div class="services-photo"><img src="img/services_2.jpg" alt="ГЕРМЕТИЗАЦИЯ ШВОВ"></div>
+                        <div class="services-text">
+                            <h4>ГЕРМЕТИЗАЦИЯ ШВОВ</h4>
+                            <p>Герметизация межпанельных швов устраняет проблему потери тепла, протекания швов, и защищает от формирования благоприятной  среды для  образования плесени.</p>
+                        </div>
+                    </div>
+                    <div class="services-column">
+                        <div class="services-photo"><img src="img/services_3.jpg" alt="ГЕРМЕТИЗАЦИЯ БАЛКОНОВ"></div>
+                        <div class="services-text">
+                            <h4>ГЕРМЕТИЗАЦИЯ БАЛКОНОВ</h4>
+                            <p>Устранение протечек кровли, комплексная гидроизоляция балкона и его кровли; заделка швов, трещин, пустот, щелей; герметизация и гидроизоляция отливов, стеклопакетов, капельников</p>
+                        </div>
+                    </div>
+                    <div class="services-column">
+                        <div class="services-photo"><img src="img/services_4.jpg" alt="РЕСТАВРАЦИЯ ФАСАДОВ"></div>
+                        <div class="services-text">
+                            <h4>РЕСТАВРАЦИЯ ФАСАДОВ</h4>
+                            <p>Предлагаемый нами ремонт и отделка фасада, или просто покраска дома, производится разными способами: с помощью тур, лесов, люлек, а также методом промышленного альпинизма</p>
+                        </div>
+                    </div>
+                    <div class="services-column">
+                        <div class="services-photo"><img src="img/services_5.jpg" alt="КЛИНИНГОВЫЕ УСЛУГИ"></div>
+                        <div class="services-text">
+                            <h4>КЛИНИНГОВЫЕ УСЛУГИ</h4>
+                            <p>Высотная мойка окон: стекол, витражей, металлических рам и перегородок, фасадов и металлоконструкций и другие клининговые услуги</p>
+                        </div>
+                    </div>
+                    <div class="services-column">
+                        <div class="services-photo"><img src="img/services_6.jpg" alt="МОНТАЖ СИСТЕМ ВЕНТИЛЯЦИИ"></div>
+                        <div class="services-text">
+                            <h4>МОНТАЖ СИСТЕМ ВЕНТИЛЯЦИИ</h4>
+                            <p>Наши специалисты готовы спроектировать и установить для вас системы вентиляции и кондиционирования различных видов.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>А так же:</h3>
+                        <ul class="services-list">
+                            <li>Монтаж водосточных систем</li>
+                            <li>Монтаж металлоконструкций</li><br>
+                            <li>Монтаж кабелей, громоотводов, заземлений</li>
+                            <li>Монтаж систем видео наблюдения и антенн</li><br>
+                            <li>Монтаж освещения и украшения зданий</li>
+                            <li>Монтаж наружной рекламы</li>
+                            <li>Монтаж баннеров, вывесок, световых коробов</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-8">
+                        <h2>Бесплатный вызов специалиста</h2>
+                        <p> Выезд мастера на объект для осмотра и проведения расчетов осуществляется бесплатно</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-4">
+                        <p class="phone">+7 (978) 816-86-59</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="price-block" class="price-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2><span>СТОИМОСТЬ</span> РАБОТ</h2>
+                        <p>Базовый прайс-лист на услуги альпинистов компании «КрымАльпМонтаж»</p>
+
+                        <table>
+                            <tr>
+                                <th colspan="2">Утепление</th>
+                            </tr>
+                            <tr>
+                                <td>- эконом</td>
+                                <td> - 800 руб./м.кв.</td>
+                            </tr>
+                            <tr>
+                                <td>- стандарт</td>
+                                <td> - 930 руб./м.кв.</td>
+                            </tr>
+                            <tr>
+                                <td>- премиум</td>
+                                <td> - 1100 руб./м.кв.</td>
+                            </tr>
+                            <tr>
+                                <td>- утепление откосов</td>
+                                <td> - от 400 руб./м.п.</td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="2">Шпатлевка</th>
+                            </tr>
+                            <tr>
+                                <td>- 1 слой (с армировкой)</td>
+                                <td>- от 180 руб./м.кв.</td>
+                            </tr>
+                            <tr>
+                                <td>- 1 слой (без армировки)</td>
+                                <td>- от 140 руб./м.кв.</td>
+                            </tr>
+
+
+                            <tr>
+                                <th colspan="2">Покраска, огрунтовка</th>
+                            </tr>
+                            <tr>
+                                <td>- 1 слой</td>
+                                <td> - от 120 руб./м.кв</td>
+                            </tr>
+                            <tr>
+                                <td>- металлоконструкций</td>
+                                <td> - договорная</td>
+                            </tr>
+
+
+                            <tr>
+                                <th colspan="2">Герметизация межпанельных швов</th>
+                            </tr>
+                            <tr>
+                                <td>- первичная</td>
+                                <td> - от 200 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- вторичная (без вскрытия шва)</td>
+                                <td> - от 150 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- вторичная (со вскрытием шва)</td>
+                                <td> - от 300 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- трехкомпонентный теплый шов</td>
+                                <td> - от 350 руб./м.п.</td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="2">Монтажные работы</th>
+                            </tr>
+                            <tr>
+                                <td>- монтаж подвесных желобов</td>
+                                <td> - 400 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- монтаж водосточных труб</td>
+                                <td> - 360 руб./м.п.</td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="2">Монтаж баннерной рекламы</th>
+                            </tr>
+                            <tr>
+                                <td>- шнуровкой</td>
+                                <td> - от 250 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- резьбовое натяжение</td>
+                                <td> - от 300 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- пристреливание</td>
+                                <td> - от 200 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>- монтаж рамы для установки баннера</td>
+                                <td> - от 100 руб./м.п.</td>
+                            </tr>
+                            <tr>
+                                <td>Монтаж металлоконструкций</td>
+                                <td>- цена договорная</td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="2">Клининговые услуги</th>
+                            </tr>
+                            <tr>
+                                <td>- мойка окон</td>
+                                <td> - от 40 руб./м.кв.</td>
+                            </tr>
+                            <tr>
+                                <td>- мойка фасадов</td>
+                                <td> - от 25 руб./м.кв.</td>
+                            </tr>
+                            <tr>
+                                <td>- очистка баннеров</td>
+                                <td> - от 40 руб./м.кв.</td>
+                            </tr>
+                        </table>
+
+                        <img src="img/price.png" alt="СТОИМОСТЬ РАБОТ">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-8">
+                        <h2>Работы по всему Крыму</h2>
+                        <p>Мы оперативно выедем в любую точку Симферополя и Крыма. <br>Наша команда всегда на готове</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-4">
+                        <p class="phone">+7 (978) 816-86-59</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio-block" class="portfolio-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2><span>НАШИ</span> РАБОТЫ</h2>
+
+                        <div class="slider portfolio-slider slider-for">
+                            <div class="item"><img src="img/portfolio_1.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_2.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_3.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_4.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_5.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_6.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_7.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_8.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_9.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_10.jpg" alt=""></div>
+                        </div>
+                        <div class="slider portfolio-slider slider-nav">
+                            <div class="item"><img src="img/portfolio_1.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_2.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_3.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_4.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_5.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_6.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_7.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_8.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_9.jpg" alt=""></div>
+                            <div class="item"><img src="img/portfolio_10.jpg" alt=""></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+	</main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="logo-column">
+                    <span class="logo-text-small">КРЫМАЛЬП</span><br>
+                    <span>МОНТАЖ</span>
+                </div>
+
+                <p class="phone">+7 (978) 816-86-59</p>
+
+                <ul>
+                    <li><a href="#about-block">О НАС</a></li>
+                    <li><a href="#services-block">НАШИ УСЛУГИ</a></li>
+                    <li><a href="#price-block">СТОИМОСТЬ РАБОТ</a></li>
+                    <li><a href="#portfolio-block">НАШИ РАБОТЫ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+	<!--[if lt IE 9]>
+	<script src="libs/html5shiv/es5-shim.min.js"></script>
+	<script src="libs/html5shiv/html5shiv.min.js"></script>
+	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="libs/respond/respond.min.js"></script>
+	<![endif]-->
+
+	<script src="libs/jquery/jquery-1.11.2.min.js"></script>
+	<script src="libs/waypoints/waypoints.min.js"></script>
+	<script src="libs/animate/animate-css.js"></script>
+	<script src="libs/plugins-scroll/plugins-scroll.js"></script>
+	<script src="libs/slick/slick.min.js"></script>
+	<script src="libs/magnificPopup/jquery.magnific-popup.min.js"></script>
+    <script src="libs/LavaLamp/js/jquery.lavalamp.min.js"></script>
+    <script src="js/common.js"></script>
+
+    <script src="vendor/js/moment.min.js"></script>
+    <script src="vendor/js/angular/angular.min.js"></script>
+    <script src="vendor/js/angular/angular-route.min.js"></script>
+    <script src="vendor/js/angular/angular-resource.min.js"></script>
+    <script src="js/angular/app.js"></script>
+    <script src="js/angular/router.js"></script>
+    <script src="js/angular/controllers/order_ctrl.js"></script>
+
+</body>
+</html>
