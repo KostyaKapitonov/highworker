@@ -48,7 +48,10 @@
                         <input x-ng-model="order.phone" required=""
                                x-ng-pattern="/^\+\d{11}$/" id="phone" name="phone" type="tel">
 
-                        <input x-ng-click="addOrderClick()" class="btn btn-color" type="submit" value="Отправить">
+                        <p  style="text-align: center;">
+                            <button x-ng-click="addOrderClick()" class="btn btn-color" value="Отправить"
+                                   style="border: none;">Отправить</button>
+                        </p>
                     </div>
                     <div x-ng-show="orderSuccess">
                         <label>Спасибо за заявку</label>
