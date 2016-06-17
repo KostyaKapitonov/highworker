@@ -52,7 +52,7 @@ function($scope, Order, $location, $rootScope){
                 $scope.orderSuccess = true;
                 $('.mfp-close').click(function(){
                     $scope.$apply(function(){
-                        $scope.orderSuccess = false;
+                        $scope.init();
                     });
                 });
             } else {
@@ -60,7 +60,6 @@ function($scope, Order, $location, $rootScope){
                 $scope.isRecaptchaDone = false;
             }
         });
-        $scope.init();
     };
 
     function isInvalid(order){
