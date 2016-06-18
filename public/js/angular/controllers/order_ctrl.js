@@ -49,7 +49,7 @@ function($scope, Order, $location, $rootScope){
         if(isInvalid($scope.order)) return;
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
             if(res.success){
-                $scope.orderSuccess = true;
+                //$scope.orderSuccess = true;
                 $('button[title="Close (Esc)"]').click();
                 alert('Спасибо за заявку.\nОжидайте звонка менеджера.');
             } else {
