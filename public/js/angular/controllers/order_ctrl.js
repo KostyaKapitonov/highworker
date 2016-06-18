@@ -44,25 +44,14 @@ function($scope, Order, $location, $rootScope){
         $scope.init();
         $location.path('/');
     };
-    /*$('[href="#callme-form"]').on('click',function(){
-        $scope.$apply(function(){
-            setTimeout(function(){
-                $scope.init();
-                $('#addOrderButton').click(function(){
-                    $scope.addOrderClick();
-                })
-            },0);
-        });
-    });*/
 
     $scope.addOrderClick = function(){
-        //alert('addOrderClick');
         if(isInvalid($scope.order)) return;
-        //alert('addOrderClick valid');
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
-            alert('res:'+res);
             if(res.success){
                 $scope.orderSuccess = true;
+                $('button[title="Close (Esc)"]').click();
+                alert('Спасибо за заявку.\nОжидайте звонка менеджера.');
             } else {
                 window.grecaptcha.reset();
                 $scope.isRecaptchaDone = false;
