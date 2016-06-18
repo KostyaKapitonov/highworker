@@ -49,6 +49,8 @@ function($scope, Order, $location, $rootScope){
         if(isInvalid($scope.order)) return;
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
             if(res.success){
+                order.name = '';
+                order.phone = '';
                 //$scope.orderSuccess = true;
                 $('button[title="Close (Esc)"]').click();
                 alert('Спасибо за заявку.\nОжидайте звонка менеджера.');
