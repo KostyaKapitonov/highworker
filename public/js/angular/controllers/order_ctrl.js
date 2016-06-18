@@ -44,9 +44,7 @@ function($scope, Order, $location, $rootScope){
         $scope.init();
         $location.path('/');
     };
-    console.log(115223);
-    $('[href="#callme-form"]').on('click',function(){
-        console.log('115223click');
+    /*$('[href="#callme-form"]').on('click',function(){
         $scope.$apply(function(){
             setTimeout(function(){
                 $scope.init();
@@ -55,11 +53,14 @@ function($scope, Order, $location, $rootScope){
                 })
             },0);
         });
-    });
+    });*/
 
     $scope.addOrderClick = function(){
+        //alert('addOrderClick');
         if(isInvalid($scope.order)) return;
+        //alert('addOrderClick valid');
         Order.add({order: $scope.order, recaptcha_token: $scope.recaptchaToken},function(res){
+            alert('res:'+res);
             if(res.success){
                 $scope.orderSuccess = true;
             } else {
