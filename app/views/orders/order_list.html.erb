@@ -14,34 +14,42 @@
     <div x-ng-show="showNewOrders && !selected_order">
       <h3 class="kk_subtitle">Новых заказов: {{newOrders.length}}</h3>
       <table>
-        <tr>
-          <td>дата<br/>(время)</td>
-          <td><b>Телефон</b></td>
-          <td><b>Имя</b></td>
-          <td>действие</td>
-        </tr>
         <tr x-ng-repeat="order in newOrders">
-          <td><b>{{order.created[0]}}</b><br/>{{order.created[1]}}</td>
-          <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
-          <td>{{order.name}}</td>
-          <td><button x-ng-click="viewed(order)">Скрыть</button></td>
+          <td>
+            <div class="kk_cellWrapper">
+              <p style="text-align: left;">
+                <b>{{order.name}}</b>
+              </p>
+              <p style="text-align: right;">
+                <a href="tel:{{order.phone}}">{{order.phone}}</a>
+              </p>
+              <p>
+                <span style="float: left"><button x-ng-click="viewed(order)">Скрыть</button></span>
+                <span><b>{{order.created[0]}}</b> {{order.created[1]}}</span>
+              </p>
+            </div>
+          </td>
         </tr>
       </table>
     </div>
     <div x-ng-hide="showNewOrders || selected_order">
       <h3 class="kk_subtitle">Просмотренных заказов: <b>{{oldOrders.length}}</b></h3>
       <table>
-        <tr>
-          <td>дата<br/>(время)</td>
-          <td><b>Телефон</b></td>
-          <td><b>Имя</b></td>
-          <td>действие</td>
-        </tr>
         <tr x-ng-repeat="order in oldOrders">
-          <td><b>{{order.created[0]}}</b><br/>{{order.created[1]}}</td>
-          <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
-          <td>{{order.name}}</td>
-          <td><button x-ng-click="select(order)">Удалить</button></td>
+          <td>
+            <div class="kk_cellWrapper">
+              <p style="text-align: left;">
+                <b>{{order.name}}</b>
+              </p>
+              <p style="text-align: right;">
+                <a href="tel:{{order.phone}}">{{order.phone}}</a>
+              </p>
+              <p>
+                <span style="float: left"><button x-ng-click="select(order)">Удалить</button></span>
+                <span><b>{{order.created[0]}}</b> {{order.created[1]}}</span>
+              </p>
+            </div>
+          </td>
         </tr>
       </table>
     </div>
