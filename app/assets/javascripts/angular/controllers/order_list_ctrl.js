@@ -19,6 +19,7 @@ function($scope, Order, $location){
             for(var i in res){
                 if(res[i].id){
                     res[i].created = moment(res[i].created_at).format('DD/MM/YY (HH:mm)');
+                    res[i].phone = formatPhone(res[i].phone);
                     res[i].created = res[i].created.split(' ');
                     res[i].is_new ? ($scope.newOrders.push(res[i])) :
                         ($scope.oldOrders.push(res[i]));
@@ -27,6 +28,12 @@ function($scope, Order, $location){
             console.log($scope.newOrders);
             console.log($scope.oldOrders);
         });
+    }
+
+    function formatPhone(origPhone){
+        var res = origPhone;
+        res = (res.slice(0,2)+' '+res.slice(2,5)+' '+res.slice(5,8)+' '+res.slice(8,12));
+        return res;
     }
 
     $scope.select = function(order){
